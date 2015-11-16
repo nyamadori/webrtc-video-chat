@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nyamadori/webrtc-video-chat/issues"
   },
-  "homepage": "https://github.com/nyamadori/webrtc-video-chat#readme"
+  "homepage": "https://github.com/nyamadori/webrtc-video-chat#readme",
+  "dependencies": {
+    "socket.io": "^1.3.7"
+  }
 }

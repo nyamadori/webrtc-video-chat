@@ -1,12 +1,17 @@
-var http = require('http');
-var fs = require('fs');
-var page = './index.html';
+var express = require('express');
+var app = express();
 
-fs.readFile(page, function (err, data) {
-  if (err) return console.error(err.message);
+app.use(express.static('./'));
 
-  http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end(data);
-  }).listen(1337, '127.0.0.1');
+var server = app.listen(1337, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Listening at http://%s:%s', host, port);
+});
+
+var io = require('socket.io')(server);
+
+io.on('connection', function (socket) {
+  socket.emit('hello', { message: 'hello'});
 });

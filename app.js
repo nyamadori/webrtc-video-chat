@@ -1,6 +1,6 @@
 var http = require('http');
 var fs = require('fs');
-var page = './index.tml';
+var page = './index.html';
 
 fs.readFile(page, function (err, data) {
   if (err) return console.error(err.message);
